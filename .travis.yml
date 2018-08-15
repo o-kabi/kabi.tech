@@ -1,11 +1,11 @@
+language: generic
 addons:
   ssh_known_hosts: kabi.tech
 branches:
   only:
   - master
 before_install:
-- openssl aes-256-cbc -K $encrypted_e74b5ba78624_key -iv $encrypted_e74b5ba78624_iv
-  -in travis_rsa.enc -out travis_rsa -d
+- openssl aes-256-cbc -k $travis_rsa_password -in travis_rsa.enc -out travis_rsa -d
 - chmod 600 ~/.ssh/travis_rsa
 deploy:
   skip_cleanup: true
@@ -13,3 +13,6 @@ deploy:
   script: ".travis/deploy.sh"
   on:
     all_branches: true
+env:
+  global:
+    secure: SD9BjUQTSMsYiHe5vPbWOR8gmI3S7FfUpT45isE1COoSgNkySr9y5w0qhvrg7T7qyn/SVE/fuQ8LmPjESND36KKSLZOGqye9XeAasW4OjSJQwIh9yzTk4aYcl2xdnSrwqi5rSsK0pmRYB670OQYCtnTfn1/zriVx0z9zcgBsy1FMSIu+wLa9RpTBV41t/pkJGXqRScA/QNFKOmiH5fRkiMQ7TMW7ch3tA2yyiS+FmkE/+qO9rVWkWS4klKp++QYQJHtrH/oSJ14EE2OqNif56otXtppumBUNii+Et8vJbpiuySj0UENs9zEBEqklMHbFWZe5EKPbfb2FfDWknFMWYBMurSabmi/uvZ94A2anOGOVERbaKk0JO5rM7Lm9UajND+FZdOc5bIA0bGGusuvPe+2MPfxF1RSlNJ1w72SVVeTg5tfi5P97wdt452r8bn0yU0UmlYY8D28kMX3XJXzL2oopqIGjfkyk06M6fKfw3FmvufciuTUdH5SWIlJvt5iGwYFwfxr59xsHfQMG/IZO3zZRtbi4rWwetVK7MUDSuAvbD7SvP0qUFMfYHRTm8o+xRmerKgE/A2/bMCCX9zEkB+5Jg5fzLUY6DCK+TwWO2x8Jfn98Ob+YLnaPqAGItnMb47ri9ig1Aa8HV14Z8o95RvTuV27w8my8EHzAygMaajg=
