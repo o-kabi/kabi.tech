@@ -2,6 +2,7 @@
 #!/bin/bash
 
 # print outputs and exit on first failure
+echo "test0"
 set -xe
 echo "test1"
 if [ $TRAVIS_BRANCH == "master" ] ; then
