@@ -5,7 +5,7 @@ branches:
   only:
   - master
 before_install:
-- openssl aes-256-cbc -k "$travis_rsa_password" -in travis_rsa.enc -out ~/.ssh/travis_rsa -d
+- openssl aes-256-cbc -k "$travis_rsa_password" -in travis_rsa.enc -out /home/travis/.ssh/travis_rsa -d
 - chmod 600 ~/.ssh/travis_rsa
 deploy:
   skip_cleanup: true
