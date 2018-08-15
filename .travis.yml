@@ -10,7 +10,7 @@ before_install:
 deploy:
   skip_cleanup: true
   provider: script
-  script: ".travis/deploy.sh"
+  script: sh "$TRAVIS_BUILD_DIR/.travis/deploy.sh"
   on:
     all_branches: true
 env:
