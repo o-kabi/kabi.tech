@@ -2,7 +2,7 @@
 # print outputs and exit on first failure
 # setup ssh agent, git config and remote
 set -xe
-eval $(ssh-agent bash)
+eval $(ssh-agent -s)
 ssh-add /home/travis/.ssh/travis_rsa
 git remote add deploy "travis@kabi.tech:/var/www/kabi.tech"
 git config user.name "Travis CI"
