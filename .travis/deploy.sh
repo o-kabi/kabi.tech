@@ -4,7 +4,7 @@
 set -xe
 eval $(ssh-agent -s)
 ssh-add /home/travis/.ssh/travis_rsa
-git remote add deploy "travis@kabi.tech:/var/www/kabi.tech"
+git remote add deploy "travis@kabi.tech:/var/www/kabi.tech/.git"
 git config user.name "Travis CI"
 git config user.email "travis@kabi.tech"
 # commit compressed files and push it to remote
